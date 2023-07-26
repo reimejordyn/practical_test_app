@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binary City_Practical Test</title>
+    <link rel="stylesheet" href="app_style.css">
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1>Practical</h1>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#general">General</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#contacts">Contacts</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <!-- General tab -->
+        <div class="tab-pane fade show active" id="general">
+            <h2>General Information</h2>
+            <button onclick="createNewClient()">Create New Client</button>
+    <br><br>
+    <div id="clientTableContainer">
+        <div id="clientTable"></div>
+    </div>
+    <div id="createClientForm" style="display: none;">
+        <h2>Create New Client</h2>
+        <form onsubmit="addClient(event)">
+            <label for="clientName">Name:</label>
+            <input type="text" id="clientName" required> 
+            <br>
+            <label for="clientCode">Client code:</label>
+            <input type="text" id="clientCode" readonly> 
+            <br>
+            <label for="linkedContacts">No. of linked contacts:</label>
+            <input type="number" id="linkedContacts" required>
+            <br>
+            <input type="submit" value="Create Client">
+            <button type="button" onclick="cancelCreateClient()">Cancel</button>
+        </form>
+    </div>
+        </div>
+
+        <!-- Contacts tab -->
+        <div class="tab-pane fade" id="contacts">
+            <h2>Contacts</h2>
+            <button onclick="createNewContact()">Create New Contact</button>
+            <br><br>
+           
+            <br><br>
+            <div id="contactTableContainer">
+                <div id="contactTable"></div>
+        </div>
+        <div id="createContactForm" style="display: none;">
+            <h2>Create New Contact</h2>
+            <form onsubmit="addContact(event)">
+                <label for="contactName">Name:</label>
+                <input type="text" id="contactName" required>
+                <br>
+                <label for="contactSurname">Surname:</label>
+                <input type="text" id="contactSurname" required>
+                <br>
+                <label for="contactEmail">Email:</label>
+                <input type="email" id="contactEmail" required>
+                <br>
+                <input type="submit" value="Create Contact">
+                <button type="button" onclick="cancelCreateContact()">Cancel</button>
+            </form>
+        </div>
+        
+        <h3>Link Clients</h3>
+        <div id="linkedClientsContainer">
+            <div id="clientListTable"></div>
+        </div>
+        <form id="linkForm">
+            <label for="clientSelect">Select a Client:</label>
+            <select id="clientSelect" name="client_id">
+             
+            </select>
+            <label for="contactSelect">Select a Contact:</label>
+            <select id="contactSelect" name="contact_id">
+          
+            </select>
+            <button type="submit" id="linkBtn" name="action" value="linkClientsToContacts">Link</button>
+            <button type="submit" id="unlinkBtn" name="action" value="unlinkClientsFromContacts">Unlink</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Client Name</th>
+                    <th>Client Code</th>
+                    <th>Contact Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="linkedClientsTableBody">
+                
+            </tbody>
+        </table>
+        
+
+    </div>
+    </div>
+    </div>
+    <script src="main.js"></script>
+
+
+    
+
+   
+</body>
+</html>
