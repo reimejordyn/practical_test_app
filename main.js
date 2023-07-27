@@ -259,6 +259,15 @@
             });
         }
 
+       function createNewContact() {
+                  document.getElementById("createContactForm").style.display = "block";
+              }
+          
+       function cancelCreateContact() {
+                document.getElementById("createContactForm").style.display = "none";
+            }
+
+
         //this is to add the created contact
         function addContact(event) {
             event.preventDefault();
